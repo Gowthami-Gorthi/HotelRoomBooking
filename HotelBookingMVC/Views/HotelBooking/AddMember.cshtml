@@ -1,0 +1,31 @@
+﻿@model HotelRoomBooking.AddMember
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2>AddMember</h2>
+<h2>AddMember</h2>
+<form method="post">
+    @Html.Label("Enter Member Name:")@Html.TextBoxFor(r => r.Member_Name)
+    <br />
+    <br />
+    @Html.Label("Enter member Age:")@Html.TextBoxFor(r => r.member_Age)
+    <br />
+    <br />
+
+
+    <input type="submit" value="Add" class="btn btn-primary" />
+
+
+
+</form>
+<div>
+    @ViewData["d"]
+
+</div>
+<ul>
+    <li> @Html.ValidationMessageFor(a => a.Member_Name)</li>
+    <li> @Html.ValidationMessageFor(a => a.member_Age)</li>
+
+</ul>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HotelRoomBooking.ReceiptFor_Result>
+@{
+    ViewBag.Title = "Receipt";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>Receipt</b></h2>
+<head>
+  
+    <style>
+        .login {
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: aquamarine;
+            border-radius: 15px;
+        }
+        h2 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color:darkred;
+            font-size: 17px;
+        }
+        </style>
+    </head>
+<body>
+    <div>
+        <form method="post">
+            <div>@{ @DateTime.Now}</div>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <label>Room id ::</label>@item.Rid<br />
+                    <label> Name::</label> @item.Bname<br />
+                    <label> Arrival Time::</label> @item.Arrival_DateTime<br />
+                    <label> Departure Time::</label> @item.Departure_DateTime<br />
+                    <label> No of People::</label> @item.No_Of_People<br />
+                    <label> Booking id::</label> @item.Bid<br />
+                    <label>Room Type :: </label> @item.RoomType<br />
+                    <label>Hotel Name ::</label>@item.HotelName<br />
+                    <label> Total Amount::</label> @item.price<br />
+                }
+            }
+        </form>
+        <button><a href="javascript:window.print()">Click to print reciept</a></button>
+        
+    </div>
+    @if (ViewData["message"] != null)
+    {
+        <div style="border:2px dashed red">@ViewData["message"]</div>
+    }
+</body>

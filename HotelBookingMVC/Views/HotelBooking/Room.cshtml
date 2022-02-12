@@ -1,0 +1,36 @@
+﻿@model HotelRoomBooking.HMap
+@using System.Collections.Generic
+@{
+    ViewBag.Title = "Room";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2>Room</h2>
+
+<body>
+    <div class="login">
+        <form method="post">
+            <table class="table">
+
+                @if (Model != null)
+                {
+                    <tr>
+                        <td><img src=@Model.images></td>
+                        <td>
+                            <b>@Model.HotelName</b><br />
+                            @Model.RoomType<br />
+                            @Model.price<br />
+                        </td>
+                        <td> @Html.ActionLink("Reserve", "BookingRegistration", @Model, new { @class = "btn btn-primary" })</td>
+                    </tr>
+
+                }
+                @Html.ActionLink("Back", "Booking", Model)
+            </table>
+        </form>
+    </div>
+    @if (ViewData["message"] != null) 
+    { 
+<div style="border:3px groove red"><i style="color:green">@ViewData["message"]</i></div>
+    }  
+</body>

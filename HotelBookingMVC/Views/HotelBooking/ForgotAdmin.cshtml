@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ForgotAdmin";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>ForgotAdmin</h2>
+<body>
+    <div class="login">
+        <form method="post">
+            <label>Enter Username</label><input type="text" name="admin" required /><br />
+            <label>Enter password</label><input type="password" name="cpassword" required /><br />
+            <label>Confirm Password</label>@Html.Password("cpwd")<br />
+            <input type="submit" value="update" />
+        </form>
+    </div>
+    @if(ViewBag.msg !=null)
+    {
+        <div>
+            <div style="color:red">@ViewBag.msg</div>
+        </div>
+    }
+</body>

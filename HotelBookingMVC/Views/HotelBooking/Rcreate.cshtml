@@ -1,0 +1,27 @@
+﻿@model HotelRoomBooking.HMap
+@{
+    ViewBag.Title = "Rcreate";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>Rcreate</h2>
+
+<body>
+    <div class="login">
+        <form method="post">
+            @if (ViewBag.HotelName != null)
+            {
+                string Hotel = ViewBag.HotelName;
+                @Html.LabelFor(h => h.HotelName)@Html.ValueFor(h => h.HotelName ==Hotel)
+                @Html.LabelFor(h => h.RoomType)@Html.TextBoxFor(h => h.RoomType)<br />
+                @Html.ValidationMessageFor(h=>h.RoomType)<br />
+                @Html.LabelFor(h => h.images)@Html.TextBoxFor(h => h.images)<br />
+                @Html.ValidationMessageFor(h=>h.images)<br />
+                @Html.LabelFor(h => h.price)@Html.TextBoxFor(h => h.price, new {@id="price"})<br />
+                @Html.ValidationMessageFor(h=>h.price)<br />
+                <input type="submit" value=" save" />
+            }
+        </form>
+    </div>
+    @Html.ActionLink("Back", "HDetails")
+</body>

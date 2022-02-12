@@ -1,0 +1,87 @@
+﻿@model IEnumerable<HotelRoomBooking.BookingHistory>
+@{
+    ViewBag.Title = "BookingHistory";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<head>
+    <style>
+        .login {
+            width: 1000px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: blanchedalmond;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color: #08ffd1;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<h2><b>BookingHistory</b></h2>
+<body>
+    <div class="login">
+            <div>
+                <form>
+                    @if (Model != null)
+                    {
+                        <table class="table">
+                            <tr style="color:royalblue">
+
+                                <th><i>Booking ID</i></th>
+                                <th><i>Room ID</i></th>
+                                <th><i>Hotel </i></th>
+                                <th><i>Total Amount</i></th>
+                                <th><i>Date</i></th>
+                                <th><i>Number of Rooms</i></th>
+                                <th><i>Arrival Time</i></th>
+                                <th><i>Departure Time</i></th>
+                                <th><i>Status</i></th>
+                            </tr>
+                            @foreach (var i in Model)
+                            {
+                                <tr>
+                                    <td>@i.BhId</td>
+                                    <td>@i.Rid</td>
+                                    <td>
+                                        @i.HotelName<br />
+                                    @i.RoomType
+                                </td>
+                                <td>@i.Amount</td>
+                                <td>@i.BDate</td>
+                                <td>@i.NoOfRooms</td>
+                                <td>@i.Arrival</td>
+                                <td>@i.Departure</td>
+                                @if (DateTime.Compare((DateTime)i.Arrival, DateTime.Now) > 0)
+                                {
+                                    <td>@Html.ActionLink("Cancel Booking", "CancelBooking", @i, new { @class = "btn btn-default" })</td>
+                                }
+                            </tr>
+                        }
+                        </table>
+                    }
+                    else
+                    {
+                        <div><i style="color:blueviolet">Untill now you didn't book a room</i></div>
+                    }
+
+                </form>
+            </div>
+            @if (ViewData["message"] != null)
+            {
+                <div><b style="border:3px groove red">@ViewData["message"]</b></div>
+            }
+            </div>
+        </body>

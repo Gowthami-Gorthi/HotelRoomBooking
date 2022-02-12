@@ -1,0 +1,49 @@
+﻿@model IEnumerable<HotelRoomBooking.BookingHistory>
+@{
+    ViewBag.Title = "BookingDetails";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2><b>BookingDetails</b></h2>
+<body>
+    <div class="login">
+        <form>
+            @if (Model != null)
+            {
+                <table class="table">
+                    <tr>
+                        <th>BookingId</th>
+                        <th>Email</th>
+                        <th>RoomId</th>
+                        <th>Hotel</th>
+                        <th>Room</th>
+                        <th>Total Amount</th>
+                        <th>Date of Booking</th>
+                        <th>Number of Rooms</th>
+                        <th>Arrival</th>
+                        <th>Departure</th>
+                    </tr>
+                    @foreach (var i in Model)
+                    {
+                    <tr>
+                        <td>@i.BhId</td>
+                        <td>@i.emailId</td>
+                        <td>@i.Rid</td>
+                        <td>@i.HotelName</td>
+                        <td>@i.RoomType</td>
+                        <td>@i.Amount</td>
+                        <td>@i.BDate</td>
+                        <td>@i.NoOfRooms</td>
+                        <td>@i.Arrival</td>
+                        <td>@i.Departure</td>
+                    </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <div>No room is Booked currently</div>
+            }      
+        </form>
+    </div>
+</body>

@@ -1,0 +1,55 @@
+﻿@model  IEnumerable<HotelRoomBooking.Hotel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2>Index</h2>
+<body>
+    <script>    
+        @*  $(function () {
+            $('#datepicker').datepicker({
+                startDate: '-0m'
+                //endDate: '+2d'
+            }).on('changeDate', function (ev) {
+                $('#sDate1').text($('#datepicker').data('date'));
+                $('#datepicker').datepicker('hide');
+            });
+
+        })*@
+        var today = new Date();
+        var dd = String(Date.now.getDate()).padStart(2, '0');
+        var mm = String(Date.now.getMonth() + 1).padStart(2, '0');
+        var yyyy = Date.now.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        $('#ci').attr('min', today);
+    </script>
+    <div class="login">
+        <form method="post">
+            <input type="text" name="myCountry" placeholder="Country" required>
+            <input type="date" id="ci" name="CheckIn" placeholder="Check-in" required />
+            <input type="date" name="CheckOut" placeholder="Check-out" required />
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+    @ViewBag.Country
+    @{ if (Model != null)
+        {
+            <table class="table">
+                @foreach (var i in Model)
+                {
+                    <tr class="bui">
+                        <td><img src=@i.Images></td>
+                        <td>
+                            <h3><b>@i.HotelName</b></h3><br />
+                            @i.HAddress<br />
+                            @i.place
+                        </td>
+                        <td>@Html.ActionLink("Check Availability", "Booking", @i, new { @class = "btn btn-primary" })</td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+</body>

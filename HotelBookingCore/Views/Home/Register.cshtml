@@ -1,0 +1,25 @@
+﻿@model HotelRoomBooking.customer;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<body>
+    <div>
+        <form method="post">
+            <label>Enter email ID</label><input type="text" asp-for="emailId" /><br /><br />
+            <span asp-validation-for="emailId"></span><br />
+            <input type="password" required />
+            <label>Enter Password</label><input type="password" asp-for=cpassword regularExpression="[a-z,A-Z,0-9]"  required/><br /><br />
+            <span asp-validation-for=cpassword></span><br />
+            <label>Confirm Password</label><input type="password" name="cpwd" /><br /><br />
+            <label>Enter Username</label><input type="text" asp-for=custname /><br /><br />
+            <span asp-validation-for=custname></span><br />
+            <label>Enter Phone</label><input type="text" asp-for=phone /><br /><br />
+            <span asp-validation-for=phone></span><br />
+            <label>Enter DOB</label><input type="date" asp-for=DOB /><br /><br />
+            <span asp-validation-for=DOB></span><br />
+            <input type="submit" value="Register" /><br />
+        </form>
+    </div>
+</body>

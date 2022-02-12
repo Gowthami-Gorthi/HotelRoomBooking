@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Logout";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>Logout</b></h2>
+<head>
+    <style>
+        .login {
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: lightblue;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        We want to meet you again !! 
+        @Html.ActionLink("Login","Login")
+    </div>
+</body>
+@{ 
+    Session["uname"] = null;
+}

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HotelRoomBooking.customer>
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>UserDetails</h2>
+
+<body>
+    <div class="login">
+        <form>
+            @if (Model != null)
+            {
+            <table class="table">
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Password</th>
+                    <th>Email Address</th>
+                    <th>DOB</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+                @foreach (var i in Model)
+                {
+                <tr>
+                    <td>@i.custname</td>
+                    <td>@i.cpassword</td>
+                    <td>@i.emailId</td>
+                    <td>@i.DOB</td>
+                    <td>@i.phone</td>
+                    <td>@i.caddress</td>
+                </tr>
+                }
+            </table>
+            }
+            else
+            {
+                <div style="color:brown">No user details found</div>
+            }          
+        </form>
+    </div>
+</body>

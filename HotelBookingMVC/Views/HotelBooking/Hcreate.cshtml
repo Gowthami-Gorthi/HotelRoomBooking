@@ -1,0 +1,29 @@
+﻿@model HotelRoomBooking.Hotel
+@{
+    ViewBag.Title = "Hcreate";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>Hcreate</h2>
+
+<body>
+    <div class="login">
+        <form method="post">
+            @Html.LabelFor(h => h.HotelName)@Html.TextBoxFor(h => h.HotelName)<br />
+            @Html.ValidationMessageFor(h=>h.HotelName)<br />
+            @Html.LabelFor(h => h.place)@Html.TextBoxFor(h => h.place)<br />
+            @Html.ValidationMessageFor(h=>h.place)<br />
+            @Html.LabelFor(h => h.HAddress)@Html.TextBoxFor(h => h.HAddress)<br />
+            @Html.ValidationMessageFor(h=>h.HAddress)<br />
+            @Html.LabelFor(h => h.Images)@Html.TextBoxFor(h => h.Images)<br />
+            @Html.ValidationMessageFor(h=>h.Images)<br />
+            <input type="submit" value=" save" />
+        </form>
+    </div>
+    @Html.ActionLink("Back", "Hotel")
+    @if(ViewData["message"]!=null)
+      {
+    <div> @ViewData["message"]</div>
+    }
+   
+</body>

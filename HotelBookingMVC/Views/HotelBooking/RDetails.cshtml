@@ -1,0 +1,28 @@
+﻿@model IEnumerable<HotelRoomBooking.HMap>
+@{
+    ViewBag.Title = "RDetails";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>RDetails</h2>
+<body>
+    <div>
+        <form>
+            @if (Model != null)
+            {
+                <div class="row">
+                    @foreach (var i in Model)
+                    {
+                        <div class="col-sm-6 col-xs-4 col-md-6">
+                            <img src=@i.images width="100px" height="100px" /><br />
+                            <h3><b>@i.HotelName</b></h3><br />
+                            @i.RoomType<br />
+                            @i.price<br />
+                        </div>
+                    }
+                </div>
+            }
+        </form>
+    </div>
+    @Html.ActionLink("Back", "HDetails")
+</body>

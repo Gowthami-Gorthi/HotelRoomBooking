@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HotelRoomBooking.FeedBack>
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2>Feedback</h2>
+
+<body>
+    <div class="login">
+        <form method="post">
+            <table>
+                <tr>
+                    <td>@Html.Label("Rating")</td>
+                    <td>
+                        <select name="Rating" required>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Good">Good</option>
+                            <option value="Satisfactory">Satisfactory</option>
+                            <option value="Bad">Bad</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Comments")</td>
+                    <td>@Html.TextArea("Comments")</td>
+                    @Html.ValidationMessage("Comments")<br />
+                </tr>
+            </table>
+            <input type="submit" value="submit" class="btn btn-primary" />
+        </form>
+    </div>
+    @if (@Model != null)
+    {
+        foreach (var res in @Model)
+        {
+            <div>
+                <ul style="background-color:aqua;border:3px black">
+                    <li style="color:blue">@res.emailId</li>
+                    <ul>Rating :: @res.Rating</ul>
+                    <ul>@res.Comments</ul>
+                </ul>
+            </div>
+        }
+    }
+    @if (ViewData["message"] != null)
+    {
+        <div style="border:3px solid black"><b style="color:red">@ViewData["message"]</b></div>
+    }
+</body>

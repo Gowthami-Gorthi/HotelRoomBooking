@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HotelRoomBooking.Hotel>
+@{
+    ViewBag.Title = "Hotel";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>Hotel</h2>
+<p> @Html.ActionLink("Create New", "Hcreate")</p>
+<body>
+    <div class="login">
+        <form>
+            @if (Model != null)
+            {
+                <div class="row">
+                    @foreach (var i in Model)
+                    {
+                    <div class="col-sm-6 col-xs-4 col-md-6">
+                        <img src=@i.Images width="100px" height="100px" /><br />
+                        <b>@i.HotelName</b> <br />
+                        @i.place<br />
+                        @i.HAddress<br />
+                        @Html.ActionLink("Edit", "HEdit", new { id = i.HotelName }) |
+                        @Html.ActionLink("Details", "HDetails", new { id = i.HotelName }) |
+                        @Html.ActionLink("Delete", "HDelete", new { id = i.HotelName })
+                    </div>
+                    }
+                    </div>
+                    }
+            </form>
+    </div>
+</body>

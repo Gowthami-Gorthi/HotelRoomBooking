@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HotelRoomBooking.customer>
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>Profile</b></h2>
+<head>
+<style>
+    .login {
+        width: 382px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 80px;
+        background: seashell;
+        border-radius: 15px;
+    }
+
+    h2 {
+        text-align: center;
+        color: midnightblue;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    label {
+        color: brown;
+        font-size: 17px;
+    }
+</style>
+</head>
+<body>
+    <div class="login">
+        <form>
+            @if (Model != null)
+            {
+                foreach (var i in Model)
+                {
+                    <b><label>Customer Name ::</label></b> @i.custname<br />
+                    <b><label>DOB ::</label></b>@i.DOB<br />
+                    <b><label>Email address ::</label></b>@i.emailId<br />
+                    <b><label>Phone ::</label></b>@i.phone<br />
+                    <b><label>Address ::</label></b>@i.caddress<br />
+                    @Html.ActionLink("Edit", "EditProfile", @i.emailId, new { @class = "btn btn-primary" })<br />
+                }
+            }
+        </form>
+    </div>
+</body>

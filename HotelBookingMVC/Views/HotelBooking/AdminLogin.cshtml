@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "AdminLogin";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>AdminLogin</h2>
+
+<body>
+    <div class="login">
+        <form method="post">
+            <label>Enter your EmailId</label><input type="text" name="admin" placeholder="Enter Username" class="form-control" required/> <br />
+            <label>Enter Password</label><input type="password" name="cpassword" placeholder="Enter Password" class="form-control" required /> <br />
+            <input type="submit" value="Admin Login" class="btn btn-primary" />
+            <a href="ForgotPwd">Forgot Password?</a>
+        </form>
+    </div>
+</body>

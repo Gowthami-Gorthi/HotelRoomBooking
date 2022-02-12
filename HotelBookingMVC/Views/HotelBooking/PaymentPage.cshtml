@@ -1,0 +1,57 @@
+﻿@model HotelRoomBooking.Payment
+@{
+    ViewBag.Title = "PaymentPage";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>PaymentPage</b></h2>
+<head>
+    <style>
+        .login {
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: gray;
+            border-radius: 15px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color: #08ffd1;
+            font-size: 17px;
+        }
+    </style>
+
+</head>
+<div class="login">
+    <div>@Html.ActionLink("Back", "Index")</div>
+       <form method="post">
+            @Html.Label("Enter Account HName:")@Html.TextBoxFor(r => r.Account_HName)
+            <br /> @Html.ValidationMessageFor(a => a.Account_HName)
+            <br />
+            @Html.Label("Enter Card Number:")@Html.TextBoxFor(r => r.Card_Number)
+            <br /> @Html.ValidationMessageFor(a => a.Card_Number)
+            <br />
+            @Html.Label("Enter Expiry Date:")@Html.TextBoxFor(r => r.Expiry_Date)
+            <br />@Html.ValidationMessageFor(a => a.Expiry_Date)
+            <br />
+            @Html.Label("Enter Cvv:")@Html.TextBoxFor(r => r.cvv)
+            <br /> @Html.ValidationMessageFor(a => a.cvv)
+            <br />
+            <input type="submit" value="submit" class="btn btn-primary" />
+        </form>
+        <div>
+            @if(ViewData["Payment"]!=null)
+            {
+                <div>@ViewData["Payment"]</div>
+            }           
+        </div>      
+</div>

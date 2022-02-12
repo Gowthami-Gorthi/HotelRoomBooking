@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>Home</h2>
+<script>
+        $(function () {
+            $('input').change(function () {
+                var val = $(this).val();
+                if (val == "Hotel") {
+                    $("input[value='Room']").prop("disabled", $(this).is(":checked"));
+                   
+                } else if (val== "Room") {
+                    $("input[value='Hotel']").prop("disabled", $(this).is(":checked"));
+                   
+                }
+            });
+        });
+</script>
+<body>
+    <div class="login">
+        @if (ViewData["msg"] != null)
+        {
+            <div>@ViewData["msg"]</div>
+        }
+        <form method="post">
+            In Which page you want to do changes ??<br />
+            <label>Hotel Page</label><input type="checkbox" value="Hotel" name="check" required />
+            <input type="submit" value="Go" />
+        </form>
+    </div>   
+</body>

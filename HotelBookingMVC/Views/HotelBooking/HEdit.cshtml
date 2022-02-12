@@ -1,0 +1,27 @@
+﻿@model HotelRoomBooking.Hotel
+@{
+    ViewBag.Title = "HEdit";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>HEdit</h2>
+
+<body>
+    <div class="login">
+        @if (ViewData["message"] != null)
+        {
+            <div>@ViewData["message"]</div>
+        }
+        <form method="post">
+            @if (Model != null)
+            {
+                @Html.LabelFor(h => h.HotelName)@Html.HiddenFor(h => h.HotelName)<br />
+                @Html.LabelFor(h => h.place)@Html.EditorFor(h => h.place)<br />
+                @Html.LabelFor(h => h.HAddress)@Html.EditorFor(h => h.HAddress)<br />
+                @Html.LabelFor(h => h.Images)@Html.EditorFor(h => h.Images)<br />
+                <input type="submit" value="Update" />
+            }
+        </form>
+    </div>
+    @Html.ActionLink("Back", "Hotel")  
+</body>

@@ -1,0 +1,38 @@
+﻿@model HotelRoomBooking.HMap
+@{
+    ViewBag.Title = "RDelete";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>RDelete</h2>
+<script>
+    $(function () {
+        $('input').change(function () {
+            var val = $(this).val();
+            if (val == "yes") {
+                $("input[value='no']").prop("disabled", $(this).is(":checked"));
+                $('#Button').prop('disabled', false);
+                $('#Button').show();
+            } else if (val == "no") {
+                $("input[value='yes']").prop("disabled", $(this).is(":checked"));
+                $('#Button').prop('disabled', true);
+                $('#Button').hide();
+            }
+        });
+    });
+</script>
+<body>
+    <div>
+        <form method="post">
+            @if (Model != null)
+            {
+                <div>Are you sure to delete a record ?</div><br />
+                @Html.Label("Yes") <input type="checkbox" name="check" value="yes" required />
+                @Html.Label("No") @Html.CheckBox("check", htmlAttributes: new { value = "no" })
+                @Html.Hidden(Model.Rid.ToString())
+                <input type="submit" value="Delete" id="Button" />
+            }
+        </form>
+    </div>
+    @Html.ActionLink("Back", "HDetails")
+</body>

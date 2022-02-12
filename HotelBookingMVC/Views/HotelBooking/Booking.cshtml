@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HotelRoomBooking.HMap>
+
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>Booking</b></h2>
+<head>
+    <style>
+        h2 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color: #08ffd1;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<div class="login">
+    @{
+        if (Model != null)
+        {
+            <h2><b>@ViewBag.msg</b></h2> <br />
+            @ViewBag.address <br />
+            <table class="table">
+
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td><img src=@i.images></td>
+                        <td>
+                            <b><h3>@i.RoomType</h3></b><br />
+                            <h3>@i.price</h3>
+                        </td>
+                        <td>@Html.ActionLink("Book Now", "Room", @i, new { @class = "btn btn-primary" })</td>
+                    </tr>
+
+                }
+                @Html.ActionLink("Back", "Index")
+            </table>
+        }
+    }
+    </div>

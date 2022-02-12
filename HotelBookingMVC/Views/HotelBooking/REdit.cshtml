@@ -1,0 +1,23 @@
+﻿@model HotelRoomBooking.HMap
+@{
+    ViewBag.Title = "REdit";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>REdit</h2>
+<body>
+    <div>
+        <form method="post">
+            @if (Model != null)
+            {
+                @Html.HiddenFor(h=>h.Rid)<br />
+                @Html.LabelFor(h => h.HotelName)@Html.ValueFor(h => h.HotelName)
+                @Html.LabelFor(h => h.RoomType)@Html.EditorFor(h => h.RoomType)<br />
+                @Html.LabelFor(h => h.images)@Html.EditorFor(h => h.images)<br />
+                @Html.LabelFor(h => h.price)@Html.EditorFor(h => h.price)<br />
+                <input type="submit" value=" Update" />
+            }
+        </form>
+    </div>
+    @Html.ActionLink("Back", "HDetails")
+</body>

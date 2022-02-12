@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Hotel Website</title>
+    <link href="~/content/css/style (1).css" rel="stylesheet" />
+    @*<link href="~/Content/CSS/style.css" rel="stylesheet" type="text/css" media="all" />
+    *@<link href="~/Content/CSS/responsiveslides.css" rel="stylesheet" />
+    <link href="~/Content/CSS/lightbox.css" rel="stylesheet" />
+    <script src="~/Content/JS/jquery.lightbox.js"></script>
+    <script src="~/Content/JS/responsiveslides.min.js"></script>
+
+    <link href="~/Content/CSS/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/JS/jquery.js"></script>
+    <script src="~/Content/JS/bootstrap.js"></script>
+
+
+</head>
+<body>
+    <div class="header">
+        <div class="wrap">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+
+                        <img src="~/Gallery/Logo2.jpeg" title="logo" />
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <img src="~/Gallery/Phone.jpeg" />Call us : <a href="#">999XXXXXXX</a></p>
+
+                    <img src="~/Gallery/Pointer.jpeg" />Gpa : <a href="#">View map</a></p>
+
+
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+        <div class="header-top-nav">
+            <div class="wrap">
+                <ul>
+                    <li class="active">@Html.ActionLink("Home", "Index")</li>
+                    <li class="active">@Html.ActionLink("Booking", "BookingRegistration")</li>
+                    @{ if (Session["uname"] == null)
+                        {
+            <li class="active">
+                @Html.ActionLink("Login", "Login")
+            </li>
+ }
+
+        else
+        {
+<li class="active">
+    @Html.ActionLink("Logout", "Logout")
+</li>
+ } }
+                  @*  <li class="active">@Html.ActionLink("Register", "Registration")</li>
+*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ul class="nav navbar-right navbar-nav">
+        <li>
+            @{ if (Session["uname"] != null)
+                {
+    <button class="btn btn-default" data-toggle="Dropdown">@Session["uname"]</button>
+                    <ul>
+                        <li>@Html.ActionLink("Profile", "Profile")</li>
+                        <li>@Html.ActionLink("Cancel Booking", "CancelBooking")</li>
+                        <li>@Html.ActionLink("Booking History", "BookingHistory")</li>
+                    </ul> }
+                else
+                {
+        <button class="right">@Html.ActionLink("Admin", "AdminLogin")</button> } }
+        </li>
+    </ul>
+
+    <div class="clear"> </div>
+    <div class="image-slider">
+
+        <ul class="rslides" id="slider3">
+
+            <li> <img src="~/Gallery/Slider1.jpeg" alt=""></li>
+            <li><img src="~/Gallery/Slider3.jpeg" alt=""></li>
+            <li><img src="~/Gallery/Slider1.jpeg" alt=""></li>
+        </ul>
+
+    </div>
+    <div class="col-md-9">
+        <div class="jumbotron">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="quit">
+        <p><span class="start">Your </span> hotel's <span class="end">Motto .</span></p>
+    </div>
+    <div class="content-grids">
+        <div class="wrap">
+            <div class="content-grid">
+                <div class="content-grid-pic">
+                    <a href="#"><img src="~/Gallery/icon1.jpeg" title="image-name" /></a>
+                </div>
+                <div class="content-grid-info">
+                    <h3>Best food Ever</h3>
+                    <p>"DESCRIPTION"</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-grid-pic">
+                    <a href="#"><img src="~/Gallery/Icon2.jpeg" title="image-name" /></a>
+                </div>
+                <div class="content-grid-info">
+                    <h3>24x7 phone support</h3>
+                    <p>"DESCRIPTION"</p>
+                    <a href="#">Read More</a>
+                </div><br /><br />
+                <div class="clear"> </div>
+            </div>
+            <div class="content-grid">
+                <div class="content-grid-pic">
+                    <a href="#"><img src="~/Gallery/Icon3.jpeg" title="image-name" /></a>
+                </div>
+                <div class="content-grid-info">
+                    <h3>Best Room Services</h3>
+                    <p>"DESCRIPTION"</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="clear"> </div>
+            </div>
+
+
+            <div class="clear"> </div>
+            <div class="content-box">
+                <div class="wrap">
+                    <div class="content-box-left">
+                        <div class="content-box-left-topgrid">
+                            <br />
+                            <br />
+                            <br />
+                            <h3>welcome to our Hotel</h3>
+                            <p> ' Feel Like Home :)</p>
+                            <p> Hotel's Description</p>
+
+                        </div>
+                        <div class="content-box-left-bootomgrids">
+                            <div class="content-box-left-bootomgrid">
+                                <h3>Casino Hotels</h3>
+                                <p> Your description about Casino hotels</p>
+                                <a href="#"><img src="~/Gallery/GreenPlazaAtAirport.jpeg" title="image-name" width="150" height="150" /></a>
+                            </div>
+                            <div class="content-box-left-bootomgrid">
+                                <h3>Resort Hotels</h3>
+                                <p>Your description about Resort hotels</p>
+                                <a href="#"><img src="~/Gallery/TajSantacruz.jpeg" title="image-name" width="150" height="150" /></a>
+                            </div>
+                            <div class="content-box-left-bootomgrid lastgrid">
+                                <h3>Capsule Hotels</h3>
+                                <p>Your description about Capsule rooms</p>
+                                <a href="#"><img src="~/Gallery/HyattRegencyDelhi.jpeg" title="image-name" width="150" height="150" /></a>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="content-box-right">
+                        <div class="content-box-right-topgrid">
+                            <br />
+                            <br />
+                            <br />
+                            <h3>Most visited Place</h3>
+                            <a href="#"><img src="~/Gallery/fimg.jpeg" title="imnage-name" width="300" height="150" /></a>
+                            <h4>Mumbai</h4>
+                            <p>"DESCRIPTION"</p>
+                            <ul>
+                                <li> @Html.ActionLink("Read More", "Room")</li>
+                            </ul>
+                            <a href="#"><img src="~/Gallery/GreenParkChennai.jpeg" title="imnage-name" width="300" height="150" /></a>
+                            <h4>Chennai</h4>
+                            <p>"DESCRIPTION"</p>
+                            <ul>
+                                <li> @Html.ActionLink("Read More", "Room")</li>
+                            </ul>
+
+                        </div>
+                        <div class="content-box-right-bottomgrid">
+
+                        </div>
+                    </div>
+                    <div class="box center-box">
+                        <ul>
+                            <li> <img src="~/Gallery/Marker.jpeg" /> @Html.ActionLink("Leave your Feedback", "Feedback")</li>
+                        </ul>
+                        <ul>
+                            <li> <img src="~/Gallery/Marker.jpeg" /> @Html.ActionLink("Aboutus", "AboutUs")</li>
+                        </ul>
+                        <ul>
+                            <li> <img src="~/Gallery/Marker.jpeg" /> @Html.ActionLink("Contactus", "ContactUs")</li>
+                        </ul>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <footer>
+
+
+                    <div class="copy-tight">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <p>&copy HOTEL,Batch 206 " The Next Applied. All rights reserved"</p>
+                    </div>
+                </footer>
+</body>
+</html>

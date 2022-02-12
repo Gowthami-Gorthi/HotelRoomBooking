@@ -1,0 +1,34 @@
+﻿@model IEnumerable<HotelRoomBooking.Contact>
+@{
+    ViewBag.Title = "UserQuery";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>UserQuery</h2>
+
+<body>
+    <div class="login">
+        <form>
+            @if(Model!=null)
+            {
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>User Queries</th>
+                        <th>Date</th>
+                    </tr>
+                    @foreach(var i in Model)
+                {
+                    <tr>
+                        <td>@i.contactId</td>
+                        <td>@i.emailId</td>
+                        <td>@i.Query</td>
+                        <td>@i.Cdate</td>
+                    </tr>
+                }
+                </table>
+            }
+        </form>
+    </div>
+</body>

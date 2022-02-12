@@ -1,0 +1,18 @@
+﻿@model HotelRoomBooking.Hotel
+@{
+    ViewBag.Title = "HDelete";
+    Layout = "~/Views/shared/AdminMaster.cshtml";
+}
+
+<h2>HDelete</h2>
+
+<body>
+    <div>
+       
+    </div>
+    @Html.ActionLink("Back", "Hotel")
+    @if(ViewData["message"]!=null)
+            {
+                <div>@ViewData["message"]</div>
+            }
+</body>

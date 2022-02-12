@@ -1,0 +1,62 @@
+﻿@model HotelRoomBooking.customer
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>EditProfile</b></h2>
+<head>
+    <style>
+        .login {
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: seashell;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: midnightblue;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color: brown;
+            font-size: 17px;
+        }
+    </style>
+    </head>
+    <body>
+        <script>
+            $("#update").click(function () {
+                if (ViewData["message"] != null) {
+                    alert("#msg");
+                }
+            });
+        </script>
+        <div class="login">
+            <form method="post">
+                @if (Model != null)
+                {
+                    <label>Email address</label>@Html.HiddenFor(Model => Model.emailId)<br />
+                    @Html.HiddenFor(Model => Model.cpassword)
+                    <label>DOB</label> @Html.HiddenFor(Model => Model.DOB)<br />
+                    <label>Customer Name</label>@Html.EditorFor(Model => Model.custname)<br />
+                    <label>Phone Number</label>@Html.EditorFor(Model => Model.phone)<br />
+                    <label>Address</label>@Html.EditorFor(Model => Model.caddress)<br />
+                    <input type="submit" value="Update" id="update" />
+                }
+                else
+                {
+                    if (ViewData["message"] != null)
+                    {
+                        <div id="msg">@ViewData["message"]</div>
+                    }
+                }
+            </form>
+        </div>
+    </body>

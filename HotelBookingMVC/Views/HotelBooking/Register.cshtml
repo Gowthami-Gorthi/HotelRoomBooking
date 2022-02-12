@@ -1,0 +1,56 @@
+﻿@model HotelRoomBooking.customer
+   
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>Register</b></h2>
+<head>
+    <style>
+        .login {
+            width: 500px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background:blue;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color: #08ffd1;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <form method="post">
+            <label>Enter email ID</label>@Html.TextBoxFor(r => r.emailId)<br />
+            @Html.ValidationMessageFor(c => c.emailId)<br />
+            <label>Enter Password</label>@Html.PasswordFor(r => r.cpassword)<br />
+            @Html.ValidationMessageFor(c => c.cpassword)<br />
+            <label>Confirm Password</label><input type="password" name="cpwd" /><br /><br />
+            <label>Enter Username</label>@Html.TextBoxFor(r => r.custname)<br />
+            @Html.ValidationMessageFor(c => c.custname)<br />
+            <label>Enter Phone</label>@Html.TextBoxFor(r => r.phone)<br />
+            @Html.ValidationMessageFor(c => c.phone)<br />
+            <label>Enter address</label>@Html.TextBoxFor(r => r.caddress)<br />
+            @Html.ValidationMessageFor(c => c.caddress)<br />
+            <label>Enter DOB</label>@Html.TextBoxFor(r => r.DOB, new { type = "date" })<br />
+            @Html.ValidationMessageFor(c => c.DOB)<br />
+            <input type="submit" value="Register" />
+            @Html.ActionLink("Login", "Login", new { @class = "btn btn-primary" })
+        </form>
+    </div>
+   @ViewData["Message"]
+</body>
+

@@ -1,0 +1,54 @@
+﻿@model HotelRoomBooking.Contact
+
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>ContactUs</b></h2>
+<head>
+    <style>
+    .login {
+        width: 500px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 80px;
+        background: lightblue;
+        border-radius: 15px;
+    }
+
+    h2 {
+        text-align: center;
+        color: red;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    label {
+        color: black;
+        font-size: 17px;
+    }
+    </style>
+</head>
+<body>
+    <div>@Html.ActionLink("Back","Index")</div>
+    <div class="login">
+        <div><p>Feel free to get touch with us for any query.</p></div>
+        hotelroombooking166@gmail.com
+        <form method="post">
+            <h2>   Enter Your Gmail Credentials </h2>
+            @Html.LabelFor(h => h.emailId)@Html.TextBoxFor(c => c.emailId)<br />
+            @Html.ValidationMessageFor(c => c.emailId)<br />
+            <label> Enter Password</label><input type="password" name="pwd" /><br /><br />
+            @Html.Label("Description")@Html.TextAreaFor(c => c.Query)<br />
+            @ViewBag.test1
+            @Html.ValidationMessageFor(c => c.Query)<br />
+            <input type="submit" value="Send Mail" />
+            @if (ViewData["message"] != null)
+            {
+                <div style="color:orange"><i>@ViewData["message"]</i></div>
+            }
+        </form>
+    </div>
+</body>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<HotelRoomBooking.BookingHistory>
+@{
+    ViewBag.Title = "CancelBooking";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>CancelBooking</b></h2>
+<head>
+    <style>
+        .login {
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: violet;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: midnightblue;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color: #08ffd1;
+            font-size: 17px;
+        }
+    </style>
+    </head>
+    <body>
+        <script>
+            $(function () {
+                $('input').change(function () {
+                    var val = $(this).val();
+                    if (val == "yes") {
+                        $("input[value='no']").prop("disabled", $(this).is(":checked"));
+                        $('#Button').prop('disabled', false);
+                        $('#Back').hide();
+                        $('#Button').show();
+                    } else if (val == "no") {
+                        $("input[value='yes']").prop("disabled", $(this).is(":checked"));
+                        $('#Button').prop('disabled', true);
+                        $('#Back').show();
+                        $('#Button').hide();
+                    }
+                });
+            });
+        </script>
+        <div class="login">
+            <form method="post">
+                @if (Model != null)
+                {
+                    <div>Are you Sure to cancel this Booking ?</div>
+                    foreach (var i in Model)
+                    {
+                        @Html.Label("Yes") <input type="checkbox" name="check" value="yes" required />
+                        @Html.Label("No") @Html.CheckBox("check", htmlAttributes: new { value = "no" })
+                        @Html.Hidden(i.BhId.ToString())
+                        <input type="submit" value="Delete" id="Button" />
+                        @Html.ActionLink("Back", "BookingHistory")
+                    }
+                }
+            </form>
+            @if (ViewData["Message"] != null)
+            {
+                <div><i>@ViewData["Message"]</i></div>
+            }
+        </div>       
+    </body>

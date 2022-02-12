@@ -1,0 +1,100 @@
+﻿@model HotelRoomBooking.HMap
+@{
+    ViewBag.Title = "BookingRegistration";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+<head>
+        <style>
+            .login {
+                text-align: center;
+                width: 500px;
+                overflow: hidden;
+                margin: auto;
+                margin: 20 0 0 450px;
+                padding: 80px;
+                background: pink;
+                border-radius: 15px;
+            }
+
+            h2, h3 {
+                text-align: center;
+                color: red;
+               @* padding: 20px;*@
+                font-size: 20px;
+            }
+
+            label {
+                color: black;
+                font-size: 15px;
+                text-align: center;
+            }
+        </style>
+
+</head>
+<body>
+    <script>
+        @* $("#t").blur(function () {
+            if ($("#t").val() == "admin") {
+                $("#t").addClass("valid");
+            } else {
+                $("#t").addClass("invalid");
+            }
+        });*@
+        $("#num").blur(function(){
+                if ($("#num").val() != null) {
+                    $("#d1").hide();
+                } else {
+                    $("#d1").show();
+                }
+        });
+
+    </script>
+    <div>
+
+    </div>
+    <div class="login">
+        <form method="post">
+            @if (Model != null)
+            {
+<b><h2>@Model.HotelName</h2></b><br />
+                <h3>@Model.RoomType</h3><br />
+                                @Model.price <br />}
+            <label>Name</label>@Html.TextBox("Bname")<br />
+            @Html.ValidationMessage("Bname")<br />
+            <label>Arrival Time</label><input type="datetime-local" name="Arrival_DateTime" />
+            @Html.ValidationMessage("Arrival_DateTime")<br />
+            <label>Departure Time</label><input type="datetime-local" name="Departure_DateTime" />
+            @*  @Html.TextBox("Departure_DateTime", new { @type = "date" })*@<br />
+            @Html.ValidationMessage("Departure_DateTime")<br />
+            <label>Number of people</label><input type="text" name="No_Of_People" id="num" /><br />
+            @Html.ValidationMessage("No_Of_People")<br />
+            <select name="NoOfRoom">
+                <option value="1">1 Room</option>
+                <option value="2">2 Rooms</option>
+                <option value="3">3 Rooms</option>
+                <option value="4">4 Rooms</option>
+                <option value="5">5 Rooms</option>
+                <option value="6">6 Rooms</option>
+                <option value="7">7 Rooms</option>
+            </select><br>
+            @* <div id="d1">
+                    <form method="post">
+                        @Html.Label("Enter Member Name:")@Html.TextBox("Member_Name")
+                        <br />
+                        <br />
+                        @Html.Label("Enter member Age:")@Html.TextBox("member_Age")
+                        <br />
+                        <br />
+                        <input type="submit" value="Add" class="btn btn-primary" />
+                    </form>
+                </div>*@
+            <input type="submit" value="payment" />
+        </form>
+    </div>
+
+    @if (ViewData["success"] != null)
+    {
+<div style="border: 3px solid brown"><b style="color:red">@ViewData["success"]</b></div>
+    }
+   
+</body>

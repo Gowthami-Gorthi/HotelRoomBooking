@@ -1,0 +1,53 @@
+﻿@model HotelRoomBooking.customer
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/shared/UserMaster.cshtml";
+}
+
+<h2><b>Login</b></h2>
+<head>
+    <style>
+        .login {
+            text-align: center;
+            width: 500px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: pink;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        label {
+            color: black;
+            font-size: 17px;
+        }
+        #a1 {
+            align-content: first baseline
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <form method="post">
+            <label>Enter your EmailId</label>@Html.TextBoxFor(c => c.emailId, new { @placeholder = "Enter EmailID", @class = "form control" })<br />
+            <label>Enter Password</label>@Html.PasswordFor(c => c.cpassword, new { @placeholder = "Enter Password" })<br />
+                      
+            <input type="submit" value="Login" class="btn btn-primary" />
+            <a href="ForgotPwd">Forgot Password?</a>
+            <hr />
+            @Html.ActionLink("Create New User", "Register", new { @role = "button", @class = "btn btn-primary" })<br />
+        </form>
+    </div>
+    @if (ViewBag.Msg != null)
+    {
+        <div style="border:3px solid red">@ViewBag.Msg</div>
+    }
+</body>
